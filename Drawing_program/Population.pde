@@ -20,7 +20,7 @@ ButtonY[3]=appHeight*0;
 ButtonWidth[3]=appWidth*1/30;
 ButtonHeight[3]=appHeight*1/30;
 //End of Yellow Color
-ButtonX[4]=appWidth*1/4 ;
+ButtonX[4]=appWidth*1/5 ;
 ButtonY[4]=appHeight*1/15;
 ButtonWidth[4]=appWidth*1/30;
 ButtonHeight[4]=appHeight*1/30;
@@ -55,9 +55,9 @@ ButtonY[10]=appHeight;
 ButtonWidth[10]=appWidth;
 ButtonHeight[10]=appHeight;
 //BG changer
-ButtonX[11]= appWidth;
-ButtonY[11]=appHeight;
-ButtonWidth[11]=appWidth;
-ButtonHeight[11]=appHeight;
+ButtonX[11]= appWidth*9/10;
+ButtonY[11]=appHeight*0;
+ButtonWidth[11]=appWidth*1/10;
+ButtonHeight[11]=appHeight*1/20;
 //Exit Button
 }//End population
