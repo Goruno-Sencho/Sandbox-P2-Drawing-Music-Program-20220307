@@ -11,7 +11,7 @@ float[] ButtonWidth= new float[numberofButtons];
 float[] ButtonHeight= new float[numberofButtons];
 int reset=1;
 PFont font;
-int initialFonSize = 55;
+int initialFontSize = 55;
 int size;
 //
 void setup() {
@@ -31,15 +31,20 @@ rect(drawingSurfaceX, drawingSurfacey, drawingSurfaceWidth, drawingSurfaceHeight
 }//End Setup
 //
 void draw() {
+  fill(white);
   rect(ButtonX[1], ButtonY[1], ButtonWidth[1], ButtonHeight[1]);
+  fill(white);
   //
   rect(ButtonX[2], ButtonY[2], ButtonWidth[2], ButtonHeight[2]);
+  fill(white);
   //
   rect(ButtonX[3], ButtonY[3], ButtonWidth[3], ButtonHeight[3]);
+  fill(white);
   //
   rect(ButtonX[4], ButtonY[4], ButtonWidth[4], ButtonHeight[4]);
+  fill(white);
   //
-  
+  fill(white);
   //
   
   //
@@ -62,11 +67,11 @@ fill(resetColour);
 //
 fill(black);
 textAlign (CENTER, CENTER);
-size = 5;
-text(font, size);
+size = 20;
+textFont(font, size);
 text(quitButtonString, ButtonX[11], ButtonY[11], ButtonWidth[11], ButtonHeight[11]);
 //Button[11] is the quit button
-//End Draw
+}//End Draw
 //
 void keyPressed() {}//End keyPressed
 //
@@ -78,7 +83,8 @@ if(mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mou
 } else{
   draw = false;
 }
-}//End mousePressed
 if (mouseX>=ButtonX[11] && mouseX<=ButtonX[11]+ButtonWidth[11]  && mouseY>=ButtonY[11] && mouseY<=ButtonY[11]+ButtonHeight[11]) exit();
+}//End mousePressed
+
 //
 //End MAIN
