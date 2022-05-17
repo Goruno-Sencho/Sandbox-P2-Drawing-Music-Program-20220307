@@ -87,7 +87,7 @@ void draw() {
   rect(ButtonX[3], ButtonY[3], ButtonWidth[3], ButtonHeight[3]);
   //
   rect(ButtonX[4], ButtonY[4], ButtonWidth[4], ButtonHeight[4]);
-if(draw==true) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
 }//End Draw
 //
 void keyPressed() {}//End keyPressed
