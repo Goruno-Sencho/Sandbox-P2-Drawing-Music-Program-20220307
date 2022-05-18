@@ -17,6 +17,7 @@ int reset=1;
 PFont font;
 int initialFontSize = 55;
 int size;
+PImage EraserImage;
 //
 void setup() {
 //
@@ -30,6 +31,7 @@ println(displayWidth, displayHeight);
 population();
 //
 font = createFont ("Harrington", initialFontSize);
+EraserImage = loadImage("Eraser.png");
 //
 rect(drawingSurfaceX, drawingSurfacey, drawingSurfaceWidth, drawingSurfaceHeight);
 }//End Setup
@@ -38,6 +40,7 @@ void draw() {
   fill(white);
   rect(ButtonX[1], ButtonY[1], ButtonWidth[1], ButtonHeight[1]);
   fill(white);
+  image(EraserImage, ButtonX[1], ButtonY[1], ButtonWidth[1]*3/4, ButtonHeight[1]*3/4);
   //
   fill(red);
   rect(ButtonX[2], ButtonY[2], ButtonWidth[2], ButtonHeight[2]);
