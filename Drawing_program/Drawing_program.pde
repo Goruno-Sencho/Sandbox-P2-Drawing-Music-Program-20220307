@@ -1,7 +1,6 @@
 //Global Variables
 int appWidth, appHeight;
 Boolean draw=false;
-float drawingSurfaceX, drawingSurfacey, drawingSurfaceWidth, drawingSurfaceHeight, drawDiameter;
 float secondTextX, secondTextY, secondTextWidth, secondTextHeight;
 float ButtonDiameter;
 color white=255, resetColour=white, red=#FF0000, button11Color, black=0;
@@ -21,22 +20,24 @@ PImage EraserImage;
 //
 void setup() {
 //
+
 appWidth=displayWidth;
 appHeight=displayHeight;
 //
 fullScreen();
 println(displayWidth, displayHeight);
 //
-//Pop
 population();
+//
+paperOpen();
 //
 font = createFont ("Harrington", initialFontSize);
 EraserImage = loadImage("Eraser.png");
 //
-rect(drawingSurfaceX, drawingSurfacey, drawingSurfaceWidth, drawingSurfaceHeight);
 }//End Setup
 //
 void draw() {
+  //
   fill(white);
   rect(ButtonX[1], ButtonY[1], ButtonWidth[1], ButtonHeight[1]);
   fill(white);
@@ -76,10 +77,14 @@ void draw() {
   rect(ButtonX[11], ButtonY[11], ButtonWidth[11], ButtonHeight[11]);
   //
   ellipse(ButtonX[12], ButtonY[12], ButtonDiameter, ButtonDiameter);
+  //
+  rect(drawingSurfaceX, drawingSurfacey, drawingSurfaceWidth, drawingSurfaceHeight);
+//
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse (mouseX, mouseY, drawDiameter, drawDiameter );
 //
-
+if(paper==true) paperOpen();
+//
 if(mouseX>=ButtonX[11] && mouseX<=ButtonX[11]+ButtonWidth[11]  && mouseY>=ButtonY[11] && mouseY<=ButtonY[11]+ButtonHeight[11]){
 button11Color=red;
 }else{
@@ -113,15 +118,17 @@ text(secondTextString, secondTextX, secondTextY, secondTextWidth, secondTextHeig
 void keyPressed() {}//End keyPressed
 //
 void mousePressed () {
-if(mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight)
-
+if(mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight){
   if (draw == false){
   draw = true;
 } else{
   draw = false;
 }
+}
 if (mouseX>=ButtonX[11] && mouseX<=ButtonX[11]+ButtonWidth[11]  && mouseY>=ButtonY[11] && mouseY<=ButtonY[11]+ButtonHeight[11]) exit();
+//
+if( mouseX>=secondTextX&&mouseX<=secondTextX+secondTextWidth&&mouseY>=secondTextY&&mouseY<=secondTextY+secondTextHeight) paper=true;
+//
 }//End mousePressed
-
 //
 //End MAIN
