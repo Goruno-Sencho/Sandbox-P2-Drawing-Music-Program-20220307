@@ -82,6 +82,7 @@ void draw() {
   fill(white);
   ellipse(ButtonX[12], ButtonY[12], ButtonDiameter, ButtonDiameter);
   fill(white);
+  image(playbuttonImage, ButtonX[12]*25/26, ButtonY[12]*11/12, ButtonDiameter, ButtonDiameter);
   //
   fill(white);
   ellipse(ButtonX[13], ButtonY[13], ButtonDiameter13, ButtonDiameter13);
