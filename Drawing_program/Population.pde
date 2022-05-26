@@ -62,8 +62,18 @@ ButtonHeight[11]=appHeight*1/20;
 //Exit Button
 ButtonX[12]= appWidth*9/10;
 ButtonY[12]=appHeight*3/4;
-ButtonDiameter=appWidth*1/5;
-ButtonDiameter=appHeight*1/5;
+ButtonDiameter=appWidth*1/8;
+ButtonDiameter=appHeight*1/8;
+//
+ButtonX[13]= appWidth*5/6;
+ButtonY[13]=appHeight*3/4;
+ButtonDiameter13=appWidth*1/12;
+ButtonDiameter13=appHeight*1/12;
+//
+ButtonX[14]= appWidth*29/30;
+ButtonY[14]=appHeight*3/4;
+ButtonDiameter14=appWidth*1/12;
+ButtonDiameter14=appHeight*1/12;
 //Music Player
 secondTextX=ButtonX[11];
 secondTextY=appHeight*1/20;
