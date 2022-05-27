@@ -1,6 +1,8 @@
 //Global Variables
 int appWidth, appHeight;
 Boolean draw=false;
+Boolean turnONredPen=false;
+Boolean turnONbluePen=false;
 float secondTextX, secondTextY, secondTextWidth, secondTextHeight;
 float ButtonDiameter, ButtonDiameter13, ButtonDiameter14;
 color white=255, resetColour=white, red=#FF0000, button11Color, button10Color, black=0;
@@ -20,6 +22,8 @@ int initialFontSize = 55;
 int size;
 PImage EraserImage;
 PImage playbuttonImage;
+PImage PencilThicknessImage;
+PImage PencilTypeImage;
 //
 void setup() {
 //
@@ -37,15 +41,16 @@ paperOpen();
 font = createFont ("Harrington", initialFontSize);
 EraserImage = loadImage("Eraser.png");
 playbuttonImage = loadImage("Play Button.png");
+PencilThicknessImage= loadImage("Pencil2.png");
+PencilTypeImage= loadImage("circled.png");
 //
 }//End Setup
 //
 void draw() {
-  
   fill(white);
   rect(ButtonX[1], ButtonY[1], ButtonWidth[1], ButtonHeight[1]);
   fill(white);
-  image(EraserImage, ButtonX[1], ButtonY[1], ButtonWidth[1]*3/4, ButtonHeight[1]*3/4);
+  image(EraserImage, ButtonX[1]*3/4, ButtonY[1]*1/8, ButtonWidth[1]*4/5, ButtonHeight[1]*4/5);
   //
   fill(red);
   rect(ButtonX[2], ButtonY[2], ButtonWidth[2], ButtonHeight[2]);
@@ -71,10 +76,15 @@ void draw() {
   rect(ButtonX[7], ButtonY[7], ButtonWidth[7], ButtonHeight[7]);
   fill(white);
   //
+  fill(white);
   rect(ButtonX[8], ButtonY[8], ButtonWidth[8], ButtonHeight[8]);
   fill(white);
+  image(PencilThicknessImage, ButtonX[8], ButtonY[8], ButtonWidth[8]*3/8, ButtonHeight[8]*9/10);
   //
+  fill(white);
   rect(ButtonX[9], ButtonY[9], ButtonWidth[9], ButtonHeight[9]);
+  fill(white);
+  image(PencilTypeImage, ButtonX[9], ButtonY[9], ButtonWidth[9]*1/2, ButtonHeight[9]);
   //
   rect(ButtonX[10], ButtonY[10], ButtonWidth[10], ButtonHeight[10]);
   //
@@ -141,6 +151,15 @@ if (mouseX>=ButtonX[5] && mouseX<=ButtonX[5]+ButtonWidth[5] && mouseY>=ButtonY[5
     rect(ButtonX[7], ButtonY[7], ButtonWidth[7], ButtonHeight[7]);
   } //Peach Button
   //
+  fill(resetColour);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse (mouseX, mouseY, drawDiameter, drawDiameter );
+//
+if (turnONredPen==true) fill(red);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse (mouseX, mouseY, drawDiameter, drawDiameter );
+  //
+if (turnONbluePen==true) fill(Blue);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse (mouseX, mouseY, drawDiameter, drawDiameter );
 //
@@ -191,8 +210,7 @@ button10Color=white;
 void keyPressed() {}//End keyPressed
 //
 void mousePressed () {
-  if (mouseX>=ButtonX[1] && mouseX<=ButtonX[1]+ButtonWidth[1] && mouseY>=ButtonY[1] && mouseY<=ButtonY[1]+ButtonHeight[1]) println("EraserButton was Pressed");
-  //
+
   if (mouseX>=ButtonX[10] && mouseX<=ButtonX[10]+ButtonWidth[10]  && mouseY>=ButtonY[10] && mouseY<=ButtonY[10]+ButtonHeight[10]) println("BackGround was Changed");
   //
 if(mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight){
@@ -206,6 +224,26 @@ if (mouseX>=ButtonX[11] && mouseX<=ButtonX[11]+ButtonWidth[11]  && mouseY>=Butto
 //
 if( mouseX>=secondTextX&&mouseX<=secondTextX+secondTextWidth&&mouseY>=secondTextY&&mouseY<=secondTextY+secondTextHeight) paper=true;
 //
+
+//Button Colour Change
+if (mouseX>=ButtonX[2] && mouseX<=ButtonX[2]+ButtonWidth[2] && mouseY>=ButtonY[2] && mouseY<=ButtonY[2]+ButtonHeight[2]){
+println("Red Button Activated");
+if(turnONredPen==false){
+turnONredPen=true;
+}else{
+  turnONredPen=false;
+}
+}
+//
+if (mouseX>=ButtonX[5] && mouseX<=ButtonX[5]+ButtonWidth[5] && mouseY>=ButtonY[5] && mouseY<=ButtonY[5]+ButtonHeight[5]){
+println("Blue Button Pressed");
+if(turnONbluePen==false){
+turnONbluePen=true;
+}else{
+  turnONbluePen=false;
+}
+}
+
 }//End mousePressed
 //
 //End MAIN
