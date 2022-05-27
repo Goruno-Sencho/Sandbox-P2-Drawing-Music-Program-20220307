@@ -3,11 +3,12 @@ int appWidth, appHeight;
 Boolean draw=false;
 float secondTextX, secondTextY, secondTextWidth, secondTextHeight;
 float ButtonDiameter, ButtonDiameter13, ButtonDiameter14;
-color white=255, resetColour=white, red=#FF0000, button11Color, black=0;
+color white=255, resetColour=white, red=#FF0000, button11Color, button10Color, black=0;
 color Yellow=#F0FF00, Green=#00FF00, Blue=#45A8FC, Peach=#FFC78B, Brown=#5A3B1A;
 color DKRed=#6F0A0A, DKBlue=#00589D, DKGreen=#037C01, DKYellow=#7A8101, DKPeach=#FFA850, DKBrown=#211100,DKGray=#B7B7B7 ;
 String secondTextString = "Reset";
 String quitButtonString="Exit";
+String BGTXT="Change BG";
 int numberofButtons = 15;
 float[] ButtonX= new float[numberofButtons];
 float[] ButtonY= new float[numberofButtons];
@@ -172,13 +173,27 @@ size =20;
 textFont(font, size);
 text(secondTextString, secondTextX, secondTextY, secondTextWidth, secondTextHeight);
 //
-//Button[11] is the quit button
+fill(button10Color);
+rect(ButtonX[10], ButtonY[10], ButtonWidth[10], ButtonHeight[10]);
+fill(black);
+textAlign (CENTER, CENTER);
+size =20;
+textFont(font, size);
+text(BGTXT, ButtonX[10], ButtonY[10], ButtonWidth[10], ButtonHeight[10]);
+//Button[10] is the BG changer
+if(mouseX>=ButtonX[10] && mouseX<=ButtonX[10]+ButtonWidth[10]  && mouseY>=ButtonY[10] && mouseY<=ButtonY[10]+ButtonHeight[10]){
+button10Color=DKGray;
+}else{
+button10Color=white;
+}//End BG Hoverover effect
 }//End Draw
 //
 void keyPressed() {}//End keyPressed
 //
 void mousePressed () {
   if (mouseX>=ButtonX[1] && mouseX<=ButtonX[1]+ButtonWidth[1] && mouseY>=ButtonY[1] && mouseY<=ButtonY[1]+ButtonHeight[1]) println("EraserButton was Pressed");
+  //
+  if (mouseX>=ButtonX[10] && mouseX<=ButtonX[10]+ButtonWidth[10]  && mouseY>=ButtonY[10] && mouseY<=ButtonY[10]+ButtonHeight[10]) println("BackGround was Changed");
   //
 if(mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight){
   if (draw == false){
