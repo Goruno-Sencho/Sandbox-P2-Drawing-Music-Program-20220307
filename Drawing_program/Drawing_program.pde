@@ -3,6 +3,10 @@ int appWidth, appHeight;
 Boolean draw=false;
 Boolean turnONredPen=false;
 Boolean turnONbluePen=false;
+Boolean turnONyellowPen=false;
+Boolean turnONgreenPen=false;
+Boolean turnONpeachPen=false;
+Boolean turnONbrownPen=false;
 float secondTextX, secondTextY, secondTextWidth, secondTextHeight;
 float ButtonDiameter, ButtonDiameter13, ButtonDiameter14;
 color white=255, resetColour=white, red=#FF0000, button11Color, button10Color, black=0;
@@ -54,7 +58,7 @@ void draw() {
   //
   fill(red);
   rect(ButtonX[2], ButtonY[2], ButtonWidth[2], ButtonHeight[2]);
-  fill(white);
+ fill(white);
   //
   fill(Yellow);
   rect(ButtonX[3], ButtonY[3], ButtonWidth[3], ButtonHeight[3]);
@@ -151,15 +155,66 @@ if (mouseX>=ButtonX[5] && mouseX<=ButtonX[5]+ButtonWidth[5] && mouseY>=ButtonY[5
     rect(ButtonX[7], ButtonY[7], ButtonWidth[7], ButtonHeight[7]);
   } //Peach Button
   //
+  //
+if(turnONredPen==true){
+  fill(DKRed);
+rect(ButtonX[2], ButtonY[2], ButtonWidth[2], ButtonHeight[2]);
+}else{
+  fill(red);
+  rect(ButtonX[2], ButtonY[2], ButtonWidth[2], ButtonHeight[2]);
+}//
+if(turnONyellowPen==true){
+  fill(DKYellow);
+rect(ButtonX[3], ButtonY[3], ButtonWidth[3], ButtonHeight[3]);
+}else{
+  fill(Yellow);
+  rect(ButtonX[3], ButtonY[3], ButtonWidth[3], ButtonHeight[3]);
+}//
+if(turnONgreenPen==true){
+  fill(DKGreen);
+rect(ButtonX[4], ButtonY[4], ButtonWidth[4], ButtonHeight[4]);
+}else{
+  fill(Green);
+  rect(ButtonX[4], ButtonY[4], ButtonWidth[4], ButtonHeight[4]);
+}//
+if(turnONbluePen==true){
+  fill(DKBlue);
+rect(ButtonX[5], ButtonY[5], ButtonWidth[5], ButtonHeight[5]);
+}else{
+  fill(Blue);
+  rect(ButtonX[5], ButtonY[5], ButtonWidth[5], ButtonHeight[5]);
+}//
   fill(resetColour);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse (mouseX, mouseY, drawDiameter, drawDiameter );
 //
-if (turnONredPen==true) fill(red);
+if(turnONredPen==true)
+ fill(red);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse (mouseX, mouseY, drawDiameter, drawDiameter );
-  //
-if (turnONbluePen==true) fill(Blue);
+//
+if (turnONbluePen==true) 
+fill(Blue);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse (mouseX, mouseY, drawDiameter, drawDiameter );
+//
+if (turnONyellowPen==true) 
+fill(Yellow);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse (mouseX, mouseY, drawDiameter, drawDiameter );
+//
+if (turnONgreenPen==true) 
+fill(Green);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse (mouseX, mouseY, drawDiameter, drawDiameter );
+//
+if (turnONpeachPen==true) 
+fill(Peach);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse (mouseX, mouseY, drawDiameter, drawDiameter );
+//
+if (turnONbrownPen==true) 
+fill(Brown);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse (mouseX, mouseY, drawDiameter, drawDiameter );
 //
@@ -226,12 +281,31 @@ if( mouseX>=secondTextX&&mouseX<=secondTextX+secondTextWidth&&mouseY>=secondText
 //
 
 //Button Colour Change
+  //
 if (mouseX>=ButtonX[2] && mouseX<=ButtonX[2]+ButtonWidth[2] && mouseY>=ButtonY[2] && mouseY<=ButtonY[2]+ButtonHeight[2]){
-println("Red Button Activated");
+  println("Red Button Activated");
 if(turnONredPen==false){
 turnONredPen=true;
 }else{
   turnONredPen=false;
+}
+}
+//
+if (mouseX>=ButtonX[3] && mouseX<=ButtonX[3]+ButtonWidth[3] && mouseY>=ButtonY[3] && mouseY<=ButtonY[3]+ButtonHeight[3]){
+println("Yellow Button Activated");
+if(turnONyellowPen==false){
+turnONyellowPen=true;
+}else{
+  turnONyellowPen=false;
+}
+}
+//
+if (mouseX>=ButtonX[4] && mouseX<=ButtonX[4]+ButtonWidth[4] && mouseY>=ButtonY[4] && mouseY<=ButtonY[4]+ButtonHeight[4]){
+println("Green Button Activated");
+if(turnONgreenPen==false){
+turnONgreenPen=true;
+}else{
+  turnONgreenPen=false;
 }
 }
 //
@@ -243,7 +317,25 @@ turnONbluePen=true;
   turnONbluePen=false;
 }
 }
-
+//
+if (mouseX>=ButtonX[6] && mouseX<=ButtonX[6]+ButtonWidth[6] && mouseY>=ButtonY[6] && mouseY<=ButtonY[6]+ButtonHeight[6]){
+println("Peach Button Pressed");
+if(turnONpeachPen==false){
+turnONpeachPen=true;
+}else{
+  turnONpeachPen=false;
+}
+}
+//
+if (mouseX>=ButtonX[7] && mouseX<=ButtonX[7]+ButtonWidth[7] && mouseY>=ButtonY[7] && mouseY<=ButtonY[7]+ButtonHeight[7]){
+println("Brown Button Pressed");
+if(turnONbrownPen==false){
+turnONbrownPen=true;
+}else{
+  turnONbrownPen=false;
+}
+}
+//
 }//End mousePressed
 //
 //End MAIN
