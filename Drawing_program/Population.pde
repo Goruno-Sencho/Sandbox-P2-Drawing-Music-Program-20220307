@@ -40,6 +40,16 @@ ButtonY[7]=appHeight*1/15;
 ButtonWidth[7]=appWidth*1/30;
 ButtonHeight[7]=appHeight*1/30;
 //End of Purple Color
+ButtonX[15]=appWidth*7/9;
+ButtonY[15]=appHeight*0;
+ButtonWidth[15]=appWidth*1/30;
+ButtonHeight[15]=appHeight*1/30;
+//End of Tip Button
+ButtonX[16]=appWidth*1/2;
+ButtonY[16]=appHeight*1/4;
+ButtonWidth[16]=appWidth*1/3;
+ButtonHeight[16]=appHeight*1/3;
+//
 ButtonX[8]=appWidth*9/10;
 ButtonY[8]=appHeight*1/3;
 ButtonWidth[8]=appWidth*1/5;
