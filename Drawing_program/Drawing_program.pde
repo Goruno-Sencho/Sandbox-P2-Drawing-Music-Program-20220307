@@ -18,6 +18,7 @@ color DKRed=#6F0A0A, DKBlue=#00589D, DKGreen=#037C01, DKYellow=#7A8101, DKPeach=
 String secondTextString = "Reset";
 String quitButtonString="Exit";
 String BGTXT="Change BG";
+String TipTXT=" Tip: Make sure to Deactivate the Color when you're done using it. You know a color is activated when the color box pressed is darker. The app won't function as intended if multiple colors are selected at once";
 int numberofButtons = 17;
 float[] ButtonX= new float[numberofButtons];
 float[] ButtonY= new float[numberofButtons];
@@ -118,7 +119,6 @@ void draw() {
    image(LightbulbImage, ButtonX[15], ButtonY[15], ButtonWidth[15], ButtonHeight[15]);
    fill(white);
    //
-   rect(ButtonX[16], ButtonY[16], ButtonWidth[16], ButtonHeight[16]);
    //
 if (mouseX>=ButtonX[2] && mouseX<=ButtonX[2]+ButtonWidth[2] && mouseY>=ButtonY[2] && mouseY<=ButtonY[2]+ButtonHeight[2]) {
   fill(DKRed);
@@ -179,7 +179,50 @@ if (mouseX>=ButtonX[5] && mouseX<=ButtonX[5]+ButtonWidth[5] && mouseY>=ButtonY[5
    image(LightbulbImage, ButtonX[15], ButtonY[15], ButtonWidth[15], ButtonHeight[15]);
    fill(white);
   //
-
+if(turnONredPen==true){
+  fill(DKRed);
+rect(ButtonX[2], ButtonY[2], ButtonWidth[2], ButtonHeight[2]);
+}else{
+  fill(red);
+  rect(ButtonX[2], ButtonY[2], ButtonWidth[2], ButtonHeight[2]);
+}//
+if(turnONyellowPen==true){
+  fill(DKYellow);
+rect(ButtonX[3], ButtonY[3], ButtonWidth[3], ButtonHeight[3]);
+}else{
+  fill(Yellow);
+  rect(ButtonX[3], ButtonY[3], ButtonWidth[3], ButtonHeight[3]);
+}//
+if(turnONgreenPen==true){
+  
+  fill(DKGreen);
+rect(ButtonX[4], ButtonY[4], ButtonWidth[4], ButtonHeight[4]);
+}else{
+  fill(Green);
+  rect(ButtonX[4], ButtonY[4], ButtonWidth[4], ButtonHeight[4]);
+}//
+if(turnONbluePen==true){
+  fill(DKBlue);
+rect(ButtonX[5], ButtonY[5], ButtonWidth[5], ButtonHeight[5]);
+}else{
+  fill(Blue);
+  rect(ButtonX[5], ButtonY[5], ButtonWidth[5], ButtonHeight[5]);
+}//
+if(turnONpeachPen==true){
+  fill(DKPeach);
+rect(ButtonX[6], ButtonY[6], ButtonWidth[6], ButtonHeight[6]);
+}else{
+  fill(Peach);
+  rect(ButtonX[6], ButtonY[6], ButtonWidth[6], ButtonHeight[6]);
+}//
+if(turnONbrownPen==true){
+  fill(DKBrown);
+rect(ButtonX[7], ButtonY[7], ButtonWidth[7], ButtonHeight[7]);
+}else{
+  fill(Brown);
+  rect(ButtonX[7], ButtonY[7], ButtonWidth[7], ButtonHeight[7]);
+}//
+//
 if(turnONPenStroke==true){
   noStroke();
   fill(red);
@@ -328,6 +371,18 @@ button11Color=red;
 }else{
 button11Color=black;
 }//End Quit Hoverover effect
+if(turnONTipText==true){
+  fill(white);
+rect(ButtonX[16], ButtonY[16], ButtonWidth[16], ButtonHeight[16]);
+  fill(white);
+rect(ButtonX[16], ButtonY[16], ButtonWidth[16], ButtonHeight[16]);
+fill(Blue);
+textAlign (CENTER, CENTER);
+size =20;
+textFont(font, size);
+text(TipTXT, ButtonX[16], ButtonY[16], ButtonWidth[16], ButtonHeight[16]);
+//
+}
 //
 //
 fill(button11Color);
@@ -360,6 +415,7 @@ size =20;
 textFont(font, size);
 text(BGTXT, ButtonX[10], ButtonY[10], ButtonWidth[10], ButtonHeight[10]);
 //Button[10] is the BG changer
+//
 if(mouseX>=ButtonX[10] && mouseX<=ButtonX[10]+ButtonWidth[10]  && mouseY>=ButtonY[10] && mouseY<=ButtonY[10]+ButtonHeight[10]){
 button10Color=DKGray;
 }else{
