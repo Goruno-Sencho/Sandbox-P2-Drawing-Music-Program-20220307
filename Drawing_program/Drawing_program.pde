@@ -523,6 +523,9 @@ turnONLineStroke=true;
   turnONLineStroke=false;
 }
 }
+if (mouseX>=ButtonX[14] && mouseX<=ButtonX[14]+ButtonDiameter14 && mouseY>=ButtonY[14] && mouseY<=ButtonY[14]+ButtonDiameter14){
+println("music is playing");
+}
 }//End mousePressed
 //
 //End MAIN
