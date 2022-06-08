@@ -523,7 +523,7 @@ turnONLineStroke=true;
   turnONLineStroke=false;
 }
 }
-if (mouseX>=ButtonX[14] && mouseX<=ButtonX[14]+ButtonDiameter14 && mouseY>=ButtonY[14] && mouseY<=ButtonY[14]+ButtonDiameter14){
+if (mouseX>=ButtonX[12]*26/27 & mouseX<=ButtonX[12]*26/27+ButtonDiameter*9/10 & mouseY>=ButtonY[12]*14/15 & mouseY<=ButtonY[12]*14/15+ButtonDiameter*3/4){
 println("music is playing");
 }
 }//End mousePressed
