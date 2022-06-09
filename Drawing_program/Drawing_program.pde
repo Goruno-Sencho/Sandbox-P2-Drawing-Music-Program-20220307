@@ -1,3 +1,9 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
 //Global Variables
 int appWidth, appHeight;
 Boolean draw=false;
@@ -33,6 +39,13 @@ PImage playbuttonImage;
 PImage PencilThicknessImage;
 PImage PencilTypeImage;
 PImage LightbulbImage;
+PImage MuteImage;
+PImage SkipImage;
+Minim minim; //creates object to access all functions
+int numberOfSongs = 4;
+AudioPlayer[] song = new AudioPlayer[numberOfSongs]; //creates "Play List" variables holding extensions WAV, AIFF, AU, SND, & MP3
+AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs]; //song1's meta data
+int currentSong = numberOfSongs - numberOfSongs;
 //
 void setup() {
 //
@@ -41,7 +54,19 @@ appWidth=displayWidth;
 appHeight=displayHeight;
 //
 fullScreen();
-println(displayWidth, displayHeight);
+println("Your dimensions are", "Width:", displayWidth, "Height:", displayHeight);
+//
+ minim = new Minim(this);//leads from data directory, loadFile should also load from project folder, like loadImage();
+  song[currentSong] = minim.loadFile("Music Download/White River - Aakash Gandhi.mp3");
+  //song[currentSong+=1] = minim.loadFile("Music Download/Gunpowder Tea - Mini Vandals.mp3");
+ // song[currentSong+=1] = minim.loadFile("Music Download/Golden Empire - The 126ers.mp3");
+  //song[currentSong+=1] = minim.loadFile("Music Download/Down With Your Getup - Mini Vandals.mp3");
+  //
+  //currentSong-=currentSong;
+  //
+ // for( int i=currentSong; i<song.length; i++) {
+  //songMetaData[i] = song[i].getMetaData();
+  //}
 //
 population();
 //
@@ -53,7 +78,8 @@ playbuttonImage = loadImage("Play Button.png");
 PencilThicknessImage= loadImage("Pencil2.png");
 PencilTypeImage= loadImage("spray-can-png-21.png");
 LightbulbImage= loadImage("tipimg.png");
-//
+MuteImage= loadImage("MuteIMG.png");
+SkipImage= loadImage("SkipSong.png");
 }//End Setup
 //
 void draw() {
@@ -108,10 +134,12 @@ void draw() {
   //
   fill(white);
   ellipse(ButtonX[13], ButtonY[13], ButtonDiameter13, ButtonDiameter13);
+  image(MuteImage, ButtonX[13]*42/43, ButtonY[13]*17/18, ButtonDiameter13, ButtonDiameter13);
   fill(white);
   //
   fill(white);
   ellipse(ButtonX[14], ButtonY[14], ButtonDiameter14, ButtonDiameter14);
+  image(SkipImage, ButtonX[14]*39/40, ButtonY[14]*17/18, ButtonDiameter14, ButtonDiameter14);
   fill(white);
   //
   fill(white);
@@ -525,6 +553,25 @@ turnONLineStroke=true;
 }
 if (mouseX>=ButtonX[12]*26/27 & mouseX<=ButtonX[12]*26/27+ButtonDiameter*9/10 & mouseY>=ButtonY[12]*14/15 & mouseY<=ButtonY[12]*14/15+ButtonDiameter*3/4){
 println("music is playing");
+if(song[currentSong].isPlaying()) {
+    song[currentSong].pause();
+  }else if (song[currentSong].position() >= song[currentSong].length()-song[currentSong].length()*1/5) {
+    song[currentSong].rewind();
+    song[currentSong].play();
+  }else{
+    song[currentSong].play();
+  }
+}
+if (mouseX>=ButtonX[13]*35/36 & mouseX<=ButtonX[13]*35/36+ButtonDiameter & mouseY>=ButtonY[13]*18/19 & mouseY<=ButtonY[13]*18/19+ButtonDiameter){
+ println("Mute Button Pressed"); 
+ if(song[currentSong].isMuted()) {
+    song[currentSong].unmute();//MUTE Button
+  } else{
+    song[currentSong].mute();
+  }
+}
+if (mouseX>=ButtonX[14] & mouseX<=ButtonX[14]+ButtonDiameter & mouseY>=ButtonY[14] & mouseY<=ButtonY[14]+ButtonDiameter){
+  println("Song is skipped");
 }
 }//End mousePressed
 //
