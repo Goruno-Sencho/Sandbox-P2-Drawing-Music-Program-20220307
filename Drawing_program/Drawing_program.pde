@@ -58,15 +58,15 @@ println("Your dimensions are", "Width:", displayWidth, "Height:", displayHeight)
 //
  minim = new Minim(this);//leads from data directory, loadFile should also load from project folder, like loadImage();
   song[currentSong] = minim.loadFile("Music Download/White River - Aakash Gandhi.mp3");
-  //song[currentSong+=1] = minim.loadFile("Music Download/Gunpowder Tea - Mini Vandals.mp3");
- // song[currentSong+=1] = minim.loadFile("Music Download/Golden Empire - The 126ers.mp3");
-  //song[currentSong+=1] = minim.loadFile("Music Download/Down With Your Getup - Mini Vandals.mp3");
+  song[currentSong+=1] = minim.loadFile("Music Download/Gunpowder Tea - Mini Vandals.mp3");
+  song[currentSong+=1] = minim.loadFile("Music Download/Golden Empire - The 126ers.mp3");
+  song[currentSong+=1] = minim.loadFile("Music Download/Down With Your Getup - Mini Vandals.mp3");
   //
-  //currentSong-=currentSong;
+  currentSong-=currentSong;
   //
- // for( int i=currentSong; i<song.length; i++) {
-  //songMetaData[i] = song[i].getMetaData();
-  //}
+ for( int i=currentSong; i<song.length; i++) {
+  songMetaData[i] = song[i].getMetaData();
+  }
 //
 population();
 //
@@ -570,8 +570,26 @@ if (mouseX>=ButtonX[13]*35/36 & mouseX<=ButtonX[13]*35/36+ButtonDiameter & mouse
     song[currentSong].mute();
   }
 }
-if (mouseX>=ButtonX[14] & mouseX<=ButtonX[14]+ButtonDiameter & mouseY>=ButtonY[14] & mouseY<=ButtonY[14]+ButtonDiameter){
+if (mouseX>=ButtonX[14]*39/40 & mouseX<=ButtonX[14]*39/40+ButtonDiameter & mouseY>=ButtonY[14]*17/18 & mouseY<=ButtonY[14]*17/18+ButtonDiameter){
   println("Song is skipped");
+  if( song[currentSong].isPlaying() ) {
+  song[currentSong].pause();
+  song[currentSong].rewind();
+      if( currentSong >= song.length-1){
+         currentSong -= currentSong;
+       }else{
+         currentSong++;
+       }
+      song[currentSong].play();
+    } else{
+       song[currentSong].rewind();
+       if( currentSong >= song.length-1){
+         currentSong -= currentSong;
+       }else{
+         currentSong++;
+       }
+         song[currentSong].play();
+       }
 }
 }//End mousePressed
 //
