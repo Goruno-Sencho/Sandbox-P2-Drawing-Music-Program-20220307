@@ -17,6 +17,7 @@ Boolean turnONTipText=false;
 Boolean turnONPenStroke=false;
 Boolean turnONLineStroke=false;
 Boolean turnONeraser=false;
+Boolean turnONBG=false;
 float secondTextX, secondTextY, secondTextWidth, secondTextHeight;
 float ButtonDiameter, ButtonDiameter13, ButtonDiameter14;
 color white=255, resetColour=white, red=#FF0000, button11Color, button10Color, black=0;
@@ -42,6 +43,7 @@ PImage PencilTypeImage;
 PImage LightbulbImage;
 PImage MuteImage;
 PImage SkipImage;
+PImage ColorImage;
 Minim minim; //creates object to access all functions
 int numberOfSongs = 4;
 AudioPlayer[] song = new AudioPlayer[numberOfSongs]; //creates "Play List" variables holding extensions WAV, AIFF, AU, SND, & MP3
@@ -81,14 +83,13 @@ PencilTypeImage= loadImage("spray-can-png-21.png");
 LightbulbImage= loadImage("tipimg.png");
 MuteImage= loadImage("MuteIMG.png");
 SkipImage= loadImage("SkipSong.png");
+ColorImage= loadImage("Submarine.png");
 }//End Setup
 //
 void draw() {
-  stroke(255);
-  if (mousePressed == true) {
-    line(mouseX, mouseY, pmouseX, pmouseY);
-  }
-
+if(turnONBG==true) {
+image(ColorImage, drawingSurfaceX, drawingSurfacey, drawingSurfaceWidth, drawingSurfaceHeight);
+}
   fill(white);
   rect(ButtonX[1], ButtonY[1], ButtonWidth[1], ButtonHeight[1]);
   fill(white);
@@ -259,27 +260,33 @@ rect(ButtonX[7], ButtonY[7], ButtonWidth[7], ButtonHeight[7]);
 //
 if(turnONPenStroke==true){
   noStroke();
+  colorMode(red);
   fill(red);
   rect(ButtonX[2], ButtonY[2], ButtonWidth[2], ButtonHeight[2]);
  fill(white);
   //
   fill(Yellow);
+  colorMode(Yellow);
   rect(ButtonX[3], ButtonY[3], ButtonWidth[3], ButtonHeight[3]);
   fill(white);
   //
   fill(Green);
+    colorMode(Green);
   rect(ButtonX[4], ButtonY[4], ButtonWidth[4], ButtonHeight[4]);
   fill(white);
   //
   fill(Blue);
+  colorMode(Blue);
   rect(ButtonX[5], ButtonY[5], ButtonWidth[5], ButtonHeight[5]);
   fill(white);
   //
   fill(Peach);
+  colorMode(Peach);
   rect(ButtonX[6], ButtonY[6], ButtonWidth[6], ButtonHeight[6]);
   fill(white);
   //
   fill(Brown);
+  colorMode(Brown);
   rect(ButtonX[7], ButtonY[7], ButtonWidth[7], ButtonHeight[7]);
   fill(white);
   //
@@ -328,13 +335,62 @@ rect(ButtonX[7], ButtonY[7], ButtonWidth[7], ButtonHeight[7]);
 }//
 }
 //
-if(turnONeraser=false){
-  noStroke();
-  noStroke();
+//
+if(turnONeraser=true){
   fill(resetColour);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+  noStroke();
+  
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse(mouseX, mouseY, drawDiameter, drawDiameter );
+
 }
+//
+if(turnONLineStroke==true){
+ fill(resetColour);
+ if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) strokeWeight(4);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, drawDiameter, drawDiameter);
+//
+if(turnONredPen==true){
+
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) 
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, drawDiameter, drawDiameter);
+}
+//
+if (turnONbluePen==true){
+  
+fill(Blue);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) strokeWeight(4);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight)rect(mouseX, mouseY, drawDiameter, drawDiameter);
+}
+//
+if (turnONyellowPen==true){
+ 
+fill(Yellow);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight)  strokeWeight(4);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, drawDiameter, drawDiameter);
+}
+//
+if (turnONgreenPen==true) {
+fill(Green);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight)  strokeWeight(4);
+
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, drawDiameter, drawDiameter);
+}
+//
+if (turnONpeachPen==true){ 
+fill(Peach);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight)   strokeWeight(4);
+
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, drawDiameter, drawDiameter);
+}
+//
+if (turnONbrownPen==true) {
+fill(Brown);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight)  strokeWeight(4);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, drawDiameter, drawDiameter);
+}
+//
+}
+//
   fill(resetColour);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse(mouseX, mouseY, drawDiameter, drawDiameter );
@@ -370,57 +426,9 @@ fill(Brown);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) ellipse (mouseX, mouseY, drawDiameter, drawDiameter );
 //
-if(turnONLineStroke==true){
- fill(resetColour);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, pmouseX, pmouseY);
-//
-if(turnONredPen==true){
-colorMode(#FF0000);
-strokeWeight(3);
- fill(red);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, pmouseX, pmouseY);
-}
-//
-if (turnONbluePen==true){
-  strokeWeight(4);
-fill(Blue);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, pmouseX, pmouseY);
-}
-//
-if (turnONyellowPen==true){
-  strokeWeight(4);
-fill(Yellow);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, pmouseX, pmouseY);
-}
-//
-if (turnONgreenPen==true) {
-  strokeWeight(4);
-fill(Green);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, pmouseX, pmouseY);
-}
-//
-if (turnONpeachPen==true){ 
-  strokeWeight(4);
-fill(Peach);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, pmouseX, pmouseY);
-}
-//
-if (turnONbrownPen==true) {
-  strokeWeight(4);
-fill(Brown);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, pmouseX, pmouseY);
-}
-//
-}
 //
 if(paper==true) paperOpen();
+//
 //
 if(mouseX>=ButtonX[11] && mouseX<=ButtonX[11]+ButtonWidth[11]  && mouseY>=ButtonY[11] && mouseY<=ButtonY[11]+ButtonHeight[11]){
 button11Color=red;
@@ -482,8 +490,6 @@ button10Color=white;
 void keyPressed() {}//End keyPressed
 //
 void mousePressed () {
-
-  if (mouseX>=ButtonX[10] && mouseX<=ButtonX[10]+ButtonWidth[10]  && mouseY>=ButtonY[10] && mouseY<=ButtonY[10]+ButtonHeight[10]) println("BackGround was Changed");
   //
 if(mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight){
   if (draw == false){
@@ -599,6 +605,16 @@ if(song[currentSong].isPlaying()) {
     song[currentSong].play();
   }
 }
+//
+if (mouseX>=ButtonX[10] && mouseX<=ButtonX[10]+ButtonWidth[10] && mouseY>=ButtonY[10] && mouseY<=ButtonY[10]+ButtonHeight[10]){
+println("Background Changed");
+if(turnONBG==false){
+turnONBG=true;
+}else{
+  turnONBG=false;
+}
+}
+//
 if (mouseX>=ButtonX[13]*35/36 & mouseX<=ButtonX[13]*35/36+ButtonDiameter & mouseY>=ButtonY[13]*18/19 & mouseY<=ButtonY[13]*18/19+ButtonDiameter){
  println("Mute Button Pressed"); 
  if(song[currentSong].isMuted()) {
