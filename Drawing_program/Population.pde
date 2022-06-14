@@ -102,6 +102,10 @@ ButtonY[14]=appHeight*3/4;
 ButtonDiameter14=appWidth*1/12;
 ButtonDiameter14=appHeight*1/12;
 //Music Player
+ButtonX[17]= appWidth*9/10;
+ButtonY[17]=appHeight*9/10;
+ButtonWidth[17]=appWidth*1/12;
+ButtonHeight[17]=appHeight*1/12;
  noStroke();
 secondTextX=ButtonX[11];
 secondTextY=appHeight*1/20;

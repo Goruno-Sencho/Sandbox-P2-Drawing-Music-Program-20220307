@@ -27,7 +27,8 @@ String secondTextString = "Reset";
 String quitButtonString="Exit";
 String BGTXT="Change BG";
 String TipTXT=" Tip: Make sure to Deactivate the Color when you're done using it. You know a color is activated when the color box pressed is darker. The app won't function as intended if multiple colors are selected at once";
-int numberofButtons = 17;
+String musicfont="Music Playing:";
+int numberofButtons = 18;
 float[] ButtonX= new float[numberofButtons];
 float[] ButtonY= new float[numberofButtons];
 float[] ButtonWidth= new float[numberofButtons];
@@ -41,7 +42,7 @@ PImage playbuttonImage;
 PImage PencilThicknessImage;
 PImage PencilTypeImage;
 PImage LightbulbImage;
-PImage MuteImage;
+PImage BackImage;
 PImage SkipImage;
 PImage ColorImage;
 Minim minim; //creates object to access all functions
@@ -75,13 +76,13 @@ population();
 //
 paperOpen();
 //
-font = createFont ("Harrington", initialFontSize);
+font = createFont ("Arial", initialFontSize);
 EraserImage = loadImage("Eraser.png");
 playbuttonImage = loadImage("Play Button.png");
 PencilThicknessImage= loadImage("Pencil2.png");
 PencilTypeImage= loadImage("spray-can-png-21.png");
 LightbulbImage= loadImage("tipimg.png");
-MuteImage= loadImage("MuteIMG.png");
+BackImage= loadImage("back.png");
 SkipImage= loadImage("SkipSong.png");
 ColorImage= loadImage("pngwing.com.png");
 }//End Setup
@@ -141,7 +142,7 @@ image(ColorImage, drawingSurfaceX, drawingSurfacey, drawingSurfaceWidth*4/5, dra
   //
   fill(white);
   ellipse(ButtonX[13], ButtonY[13], ButtonDiameter13, ButtonDiameter13);
-  image(MuteImage, ButtonX[13]*42/43, ButtonY[13]*17/18, ButtonDiameter13, ButtonDiameter13);
+  image(BackImage, ButtonX[13]*48/49, ButtonY[13]*23/24, ButtonDiameter13*4/6, ButtonDiameter13*4/6);
   fill(white);
   //
   fill(white);
@@ -391,38 +392,38 @@ if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfac
 }
 //
   fill(resetColour);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) 
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, drawDiameter, drawDiameter );
 //
 if(turnONredPen==true)
 
  fill(red);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) 
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, drawDiameter, drawDiameter );
 //
 if (turnONbluePen==true) 
 fill(Blue);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) 
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect(mouseX, mouseY, drawDiameter, drawDiameter );
 //
 if (turnONyellowPen==true) 
 fill(Yellow);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight)
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect (mouseX, mouseY, drawDiameter, drawDiameter );
 //
 if (turnONgreenPen==true) 
 fill(Green);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) 
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect (mouseX, mouseY, drawDiameter, drawDiameter );
 //
 if (turnONpeachPen==true) 
 fill(Peach);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) 
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect (mouseX, mouseY, drawDiameter, drawDiameter );
 //
 if (turnONbrownPen==true) 
 fill(Brown);
-if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) line(mouseX, mouseY, pmouseX, pmouseY);
+if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) 
 if(draw==true &&mouseX>=drawingSurfaceX && mouseX<=drawingSurfaceX+drawingSurfaceWidth && mouseY>=drawingSurfacey && mouseY<= drawingSurfacey+drawingSurfaceHeight) rect (mouseX, mouseY, drawDiameter, drawDiameter );
 //
 //
@@ -478,6 +479,15 @@ size =20;
 textFont(font, size);
 text(BGTXT, ButtonX[10], ButtonY[10], ButtonWidth[10], ButtonHeight[10]);
 //Button[10] is the BG changer
+//
+fill(white);
+rect(ButtonX[17], ButtonY[17], ButtonWidth[17], ButtonHeight[17]);
+fill(black);
+textAlign(CENTER, CENTER);
+size =20;
+textFont(font, size);
+text(songMetaData[currentSong].title(), ButtonX[17], ButtonY[17], ButtonWidth[17], ButtonHeight[17]);
+
 //
 if(mouseX>=ButtonX[10] && mouseX<=ButtonX[10]+ButtonWidth[10]  && mouseY>=ButtonY[10] && mouseY<=ButtonY[10]+ButtonHeight[10]){
 button10Color=DKGray;
@@ -618,12 +628,27 @@ turnONBG=true;
 }
 //
 if (mouseX>=ButtonX[13]*35/36 & mouseX<=ButtonX[13]*35/36+ButtonDiameter & mouseY>=ButtonY[13]*18/19 & mouseY<=ButtonY[13]*18/19+ButtonDiameter){
- println("Mute Button Pressed"); 
- if(song[currentSong].isMuted()) {
-    song[currentSong].unmute();//MUTE Button
-  } else{
-    song[currentSong].mute();
-  }
+ println("Previous button pressed"); 
+if( song[currentSong].isPlaying() ) {
+  song[currentSong].pause();
+  song[currentSong].rewind();
+      if( currentSong >= song.length-1){
+         currentSong += currentSong;
+       }else{
+         currentSong--;
+       }
+      song[currentSong].play();
+    } else{
+       song[currentSong].rewind();
+       if( currentSong >= song.length-1){
+         currentSong += currentSong;
+       }else{
+         currentSong--;
+       }
+       song[currentSong].pause();
+         song[currentSong].play();
+         
+       }
 }
 if (mouseX>=ButtonX[14]*39/40 & mouseX<=ButtonX[14]*39/40+ButtonDiameter & mouseY>=ButtonY[14]*17/18 & mouseY<=ButtonY[14]*17/18+ButtonDiameter){
   println("Song is skipped");
