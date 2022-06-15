@@ -23,7 +23,7 @@ float ButtonDiameter, ButtonDiameter13, ButtonDiameter14;
 color white=255, resetColour=white, red=#FF0000, button11Color, button10Color, black=0;
 color Yellow=#F0FF00, Green=#00FF00, Blue=#45A8FC, Peach=#FFC78B, Brown=#5A3B1A;
 color DKRed=#6F0A0A, DKBlue=#00589D, DKGreen=#037C01, DKYellow=#7A8101, DKPeach=#FFA850, DKBrown=#211100,DKGray=#B7B7B7 ;
-String secondTextString = "Reset";
+String secondTextString = "Clear Paint";
 String quitButtonString="Exit";
 String BGTXT="Change BG";
 String TipTXT=" Tip: Make sure to Deactivate the Color when you're done using it. You know a color is activated when the color box pressed is darker. The app won't function as intended if multiple colors are selected at once";
@@ -608,7 +608,7 @@ turnONLineStroke=true;
 }
 if (mouseX>=ButtonX[12]*26/27 & mouseX<=ButtonX[12]*26/27+ButtonDiameter*9/10 & mouseY>=ButtonY[12]*14/15 & mouseY<=ButtonY[12]*14/15+ButtonDiameter*3/4){
 println("music is playing");
-if(song[currentSong].isPlaying()) {
+ if(song[currentSong].isPlaying()) {
     song[currentSong].pause();
   }else if (song[currentSong].position() >= song[currentSong].length()-song[currentSong].length()*1/5) {
     song[currentSong].rewind();
@@ -633,7 +633,7 @@ if( song[currentSong].isPlaying() ) {
   song[currentSong].pause();
   song[currentSong].rewind();
       if( currentSong >= song.length-1){
-         currentSong += currentSong;
+         currentSong -= currentSong;
        }else{
          currentSong--;
        }
@@ -641,13 +641,11 @@ if( song[currentSong].isPlaying() ) {
     } else{
        song[currentSong].rewind();
        if( currentSong >= song.length-1){
-         currentSong += currentSong;
+         currentSong -= currentSong;
        }else{
-         currentSong--;
+         currentSong++;
        }
-       song[currentSong].pause();
          song[currentSong].play();
-         
        }
 }
 if (mouseX>=ButtonX[14]*39/40 & mouseX<=ButtonX[14]*39/40+ButtonDiameter & mouseY>=ButtonY[14]*17/18 & mouseY<=ButtonY[14]*17/18+ButtonDiameter){
