@@ -85,6 +85,7 @@ LightbulbImage= loadImage("tipimg.png");
 BackImage= loadImage("back.png");
 SkipImage= loadImage("SkipSong.png");
 ColorImage= loadImage("pngwing.com.png");
+//
 }//End Setup
 //
 void draw() {
@@ -487,7 +488,6 @@ textAlign(CENTER, CENTER);
 size =20;
 textFont(font, size);
 text(songMetaData[currentSong].title(), ButtonX[17], ButtonY[17], ButtonWidth[17], ButtonHeight[17]);
-
 //
 if(mouseX>=ButtonX[10] && mouseX<=ButtonX[10]+ButtonWidth[10]  && mouseY>=ButtonY[10] && mouseY<=ButtonY[10]+ButtonHeight[10]){
 button10Color=DKGray;
