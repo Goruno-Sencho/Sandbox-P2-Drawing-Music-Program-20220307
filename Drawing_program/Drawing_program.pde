@@ -598,8 +598,8 @@ turnONPenStroke=true;
 }
 //
 if (mouseX>=ButtonX[8] && mouseX<=ButtonX[8]+ButtonWidth[8] && mouseY>=ButtonY[8] && mouseY<=ButtonY[8]+ButtonHeight[8]){
-println("Line Button Pressed");
-strokeWeight(4);
+println("Looks have been changed, restart program to reset");
+strokeWeight(2);
 if(turnONLineStroke==false){
 turnONLineStroke=true;
 }else{
@@ -632,7 +632,7 @@ if (mouseX>=ButtonX[13]*35/36 & mouseX<=ButtonX[13]*35/36+ButtonDiameter & mouse
 if( song[currentSong].isPlaying() ) {
   song[currentSong].pause();
   song[currentSong].rewind();
-      if( currentSong >= song.length-1){
+      if( currentSong <= song.length-1){
          currentSong -= currentSong;
        }else{
          currentSong--;
@@ -640,7 +640,7 @@ if( song[currentSong].isPlaying() ) {
       song[currentSong].play();
     } else{
        song[currentSong].rewind();
-       if( currentSong >= song.length-1){
+       if( currentSong <= song.length-1){
          currentSong -= currentSong;
        }else{
          currentSong++;
