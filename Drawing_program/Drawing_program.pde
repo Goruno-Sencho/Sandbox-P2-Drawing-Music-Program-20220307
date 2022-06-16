@@ -632,7 +632,7 @@ if (mouseX>=ButtonX[13]*35/36 & mouseX<=ButtonX[13]*35/36+ButtonDiameter & mouse
 if( song[currentSong].isPlaying() ) {
   song[currentSong].pause();
   song[currentSong].rewind();
-      if( currentSong <= song.length-1){
+      if( currentSong >= song.length-1){
          currentSong -= currentSong;
        }else{
          currentSong--;
